@@ -1,5 +1,6 @@
 'use client';
 
+import { logout } from '@/app/actions/auth';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -26,7 +27,7 @@ export const UserMenu = () => {
         <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuItem>Support</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Logout</DropdownMenuItem>
+        <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import axios, { AxiosError } from 'axios';
 
 export const login = async (email: string, password: string) => {
@@ -58,5 +59,20 @@ export const register = async (
         message: 'Algo salió mal. Intenta de nuevo.',
       };
     }
+  }
+};
+
+export const logout = async () => {
+  try {
+    await axios.post(
+      'http://localhost:5000/api/auth/logout',
+      {},
+      {
+        withCredentials: true,
+      }
+    );
+    redirect('/login');
+  } catch (error) {
+    console.error(error);
   }
 };

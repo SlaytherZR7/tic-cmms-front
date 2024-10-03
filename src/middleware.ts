@@ -28,7 +28,7 @@ export default async function middleware(req: NextRequest) {
       }
     } catch (error) {
       console.error('Error de verificación del token:', error);
-      return NextResponse.redirect('/login');
+      return NextResponse.redirect(new URL('/login', req.url));
     }
   } else {
     // Si no hay sesión y se intenta acceder a rutas protegidas
